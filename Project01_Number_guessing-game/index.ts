@@ -5,7 +5,7 @@ async function game() {
 
     let userChoice = promptSync("Enter your number: ");
 
-    if (randomNumber === userChoice.num) {
+    if (randomNumber === userChoice) {
         console.log(`Computer guessed number is ${randomNumber}`);
         console.log("Congrats! You win");
     } else {
