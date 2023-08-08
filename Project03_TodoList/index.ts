@@ -40,7 +40,7 @@ const menu = inquirer.prompt([
 });
 
 function addTask() {
-    let newTask = inquirer.prompt({
+    inquirer.prompt({
         type: 'input',
         name: 'task',
         message: 'Enter the new task:',
@@ -87,8 +87,8 @@ function Delete() {
         message: 'Enter the task number you want to delete',
     }).then((deleteChoice: any) => {
         let deleteInput = deleteChoice.deleteInput - 1;
-        
-        if(deleteInput >= 0 && deleteInput < array.length) {
+
+        if (deleteInput >= 0 && deleteInput < array.length) {
             array.splice(deleteInput, 1);
             console.log(`Task at index ${deleteInput + 1}, ${array[deleteInput]} has been deleted.`);
         } else {
