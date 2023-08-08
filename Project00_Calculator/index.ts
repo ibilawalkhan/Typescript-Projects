@@ -16,7 +16,7 @@ async function performCalculation(operator: string, num1: number, num2: number):
     switch (operator) {
         case 'add':
             return num1 + num2;
-        case 'subtract':
+        case 'subtract' :
             return num1 - num2;
         case 'multiply':
             return num1 * num2;
