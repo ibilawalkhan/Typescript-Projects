@@ -1,3 +1,4 @@
+#!/usr/bin/node env
 const inquirer = require('inquirer');
 
 const array: string[] = ["Gym", "Programming", "Netflix"];
