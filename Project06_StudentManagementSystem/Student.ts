@@ -14,7 +14,6 @@ class Student {
         this.setBalance(balance)
     }
 
-
     setStudentId() {
         let id1 = Math.floor(Math.random() * 2) + 1
         let id2 = Math.random().toString(36).substring(2, 6)
