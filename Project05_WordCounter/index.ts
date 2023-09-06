@@ -1,3 +1,4 @@
+#!/usr/bin/node env
 const promptSync = require("prompt-sync")();
 
 let paragraph = promptSync("Enter your paragraph: ");

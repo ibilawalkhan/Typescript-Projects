@@ -1,20 +1,25 @@
+#!/usr/bin/node env
 const promptSync = require("prompt-sync")();
 
-async function game() {
-    let randomNumber: number = Math.floor(Math.random() * 10) + 1;
+function playGame() {
+    let playAgain: boolean = true;
 
-    let userChoice = promptSync("Enter your number: ");
+    while (playAgain) {
+        let randomNumber: number = Math.floor(Math.random() * 10) + 1;
 
-    if (randomNumber === userChoice) {
-        console.log(`Computer guessed number is ${randomNumber}`);
-        console.log("Congrats! You win");
-    } else {
-        console.log(`Computer guessed number is ${randomNumber} while your's is ${userChoice}`)
-        console.log("You lose");
+        let userChoice = parseInt(promptSync("Guess the number: "));
+
+        if (randomNumber === userChoice) {
+            console.log(`Computer guessed number is ${randomNumber}`);
+            console.log("Congrats! You win");
+        } else {
+            console.log(`Computer guessed number is ${randomNumber} while yours is ${userChoice}`);
+            console.log("You lose");
+        }
+
+        const playAgainResponse = promptSync("Do you want to play again? (yes/no): ");
+        playAgain = playAgainResponse.toLowerCase() === "yes";
     }
 }
 
-game();
-
-
-
+playGame();

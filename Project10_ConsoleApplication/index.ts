@@ -1,3 +1,4 @@
+#!/usr/bin/node env
 import Person from "./Person";
 import Student from "./Student";
 

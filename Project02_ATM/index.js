@@ -1,53 +1,61 @@
-var promptSync = require("prompt-sync")();
+"use strict";
+const promptSync = require("prompt-sync")();
 console.log("Welcome to ATM");
 // Hardcoded values
-var Id = 12345;
-var pass = 54321;
-var balance = 10000;
+const Id = 12345;
+const pass = 54321;
+let balance = 10000;
 // Take userId and password as input
-var userIdInput = promptSync("Enter your UserID: ");
-var passwordInput = promptSync("Enter your Password: ");
-var userId = parseInt(userIdInput);
-var password = parseInt(passwordInput);
+const userIdInput = promptSync("Enter your UserID: ");
+const passwordInput = promptSync("Enter your Password: ");
+const userId = parseInt(userIdInput);
+const password = parseInt(passwordInput);
 // Check if the inputs are correct or not
 if (userId === Id && password === pass) {
     console.log("Login Successfully!");
-    Atm();
+    Atm(); // call atm functionalities
 }
 else {
     console.log("Wrong userId or Password! Try again");
 }
 function Atm() {
-    console.log("Select an action: \n    Press 1 for Account Balance\n    Press 2 for Withdraw\n    Press 3 for Deposit\n    Press 4 for Transfering funds : ");
-    var choiceInput = promptSync();
-    var choice = parseInt(choiceInput);
+    console.log(`Select an action: 
+    Press 1 for Account Balance
+    Press 2 for Withdraw
+    Press 3 for Deposit
+    Press 4 for Transfering funds : `);
+    const choiceInput = promptSync();
+    const choice = parseInt(choiceInput);
     switch (choice) {
         case 1:
-            console.log("Your current balance is ".concat(balance));
+            console.log(`Your current balance is ${balance}`);
             break;
         case 2:
-            var withdrawAmountInput = promptSync('How much amount do you want to withdraw: ');
-            var withdrawAmount = parseInt(withdrawAmountInput);
+            const withdrawAmountInput = promptSync('How much amount do you want to withdraw: ');
+            const withdrawAmount = parseInt(withdrawAmountInput);
             if (withdrawAmount <= balance) {
                 balance = balance - withdrawAmount;
-                console.log("Withdraw Successfull! \n                            Remaining balance is ".concat(balance));
+                console.log(`Withdraw Successfull! 
+                            Remaining balance is ${balance}`);
             }
             else {
-                console.log("Withdraw failed! ".concat(withdrawAmount, " exceed you current balance"));
+                console.log(`Withdraw failed! ${withdrawAmount} exceed you current balance`);
             }
             break;
         case 3:
-            var depositInput = promptSync("Enter the amount you want to deposit: ");
-            var deposit = parseInt(depositInput);
+            const depositInput = promptSync(`Enter the amount you want to deposit: `);
+            const deposit = parseInt(depositInput);
             balance = balance + deposit;
-            console.log("Your amount has been deposit!\n            Your new balance is ".concat(balance));
+            console.log(`Your amount has been deposit!
+            Your new balance is ${balance}`);
             break;
         case 4:
-            var transferInput = promptSync("Enter the amount you want to transfer: ");
-            var transfer = parseInt(transferInput);
+            const transferInput = promptSync("Enter the amount you want to transfer: ");
+            const transfer = parseInt(transferInput);
             if (transfer <= balance) {
                 balance = balance - transfer;
-                console.log("Transfered successful!\n                New balance is ".concat(balance));
+                console.log(`Transfered successful!
+                New balance is ${balance}`);
             }
             break;
     }

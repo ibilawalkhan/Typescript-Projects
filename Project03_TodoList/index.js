@@ -1,6 +1,8 @@
-var inquirer = require('inquirer');
-var array = ["Gym", "Programming", "Netflix"];
-var menu = inquirer.prompt([
+#!/usr/bin/node env
+"use strict";
+const inquirer = require('inquirer');
+const array = ["Gym", "Programming", "Netflix"];
+const menu = inquirer.prompt([
     {
         type: 'list',
         name: 'menuChoice',
@@ -13,8 +15,8 @@ var menu = inquirer.prompt([
             "Exit the app",
         ],
     },
-]).then(function (answers) {
-    var selectedOption = answers.menuChoice;
+]).then((answers) => {
+    const selectedOption = answers.menuChoice;
     switch (selectedOption) {
         case "Add a new task":
             addTask();
@@ -30,23 +32,22 @@ var menu = inquirer.prompt([
             break;
         case "Exit the app":
             return;
-            break;
     }
 });
 function addTask() {
-    var newTask = inquirer.prompt({
+    inquirer.prompt({
         type: 'input',
         name: 'task',
         message: 'Enter the new task:',
-    }).then(function (newTask) {
-        var task = newTask.task;
+    }).then((newTask) => {
+        const task = newTask.task;
         array.push(task);
-        console.log("Your task is added ".concat(task));
+        console.log(`Your task is added ${task}`);
     });
 }
 function showTasks() {
     if (array.length > 0) {
-        for (var i = 0; i < array.length; i++) {
+        for (let i = 0; i < array.length; i++) {
             console.log(array[i]);
         }
     }
@@ -56,16 +57,16 @@ function update() {
         type: 'number',
         name: 'updateInput',
         message: 'Enter the task number you want to update',
-    }).then(function (updateChoiceInput) {
-        var updateInput = updateChoiceInput.updateInput - 1;
+    }).then((updateChoiceInput) => {
+        let updateInput = updateChoiceInput.updateInput - 1;
         inquirer.prompt({
             type: 'input',
             name: 'update',
             message: 'Enter the Updated task'
-        }).then(function (updateChoice) {
-            var updated = updateChoice.update;
+        }).then((updateChoice) => {
+            let updated = updateChoice.update;
             array[updateInput] = updated;
-            console.log("Your task \"".concat(updated, "\" is updated"));
+            console.log(`Your task "${updated}" is updated`);
         });
     });
 }
@@ -74,11 +75,11 @@ function Delete() {
         type: 'number',
         name: 'deleteInput',
         message: 'Enter the task number you want to delete',
-    }).then(function (deleteChoice) {
-        var deleteInput = deleteChoice.deleteInput - 1;
+    }).then((deleteChoice) => {
+        let deleteInput = deleteChoice.deleteInput - 1;
         if (deleteInput >= 0 && deleteInput < array.length) {
             array.splice(deleteInput, 1);
-            console.log("Task at index ".concat(deleteInput + 1, ", ").concat(array[deleteInput], " has been deleted."));
+            console.log(`Task at index ${deleteInput + 1}, ${array[deleteInput]} has been deleted.`);
         }
         else {
             console.log('Invalid task number');

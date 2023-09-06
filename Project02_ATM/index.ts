@@ -1,3 +1,4 @@
+#!/usr/bin/node env
 const promptSync = require("prompt-sync")();
 
 console.log("Welcome to ATM");

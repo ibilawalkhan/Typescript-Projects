@@ -1,3 +1,4 @@
+#!/usr/bin/node env
 const myInput = require('prompt-sync')()
 
 class Game {

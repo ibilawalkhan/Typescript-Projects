@@ -1,3 +1,4 @@
+#!/usr/bin/node env
 function calculateTimeRemaining(targetDate: Date): number {
     const currentDate = new Date()
     const timeDifference = targetDate.getTime() - currentDate.getTime()
