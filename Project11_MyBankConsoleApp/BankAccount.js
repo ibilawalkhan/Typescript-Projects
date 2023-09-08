@@ -1,34 +1,32 @@
-class BankAccount implements IBankAccount {
-    private AccountBalance: number = 0;
-
-    constructor(initialBalance: number) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+class BankAccount {
+    constructor(initialBalance) {
+        this.AccountBalance = 0;
         this.AccountBalance = initialBalance;
     }
-
-    setAccountBalance(balance: number): void {
+    setAccountBalance(balance) {
         this.AccountBalance = balance;
     }
-
-    getAccountBalance(): number {
+    getAccountBalance() {
         return this.AccountBalance;
     }
-
-    Debit(amount: number): string {
-        let statement: string = "Transaction failed!";
+    Debit(amount) {
+        let statement = "Transaction failed!";
         if (amount > 0) {
             statement = "The amount you entered is wrong!";
             if (this.AccountBalance >= amount) {
                 this.AccountBalance -= amount;
                 statement = `Transaction successful! New account balance is ${this.AccountBalance}`;
-            } else {
+            }
+            else {
                 statement = "Sorry, you have insufficient balance";
             }
         }
         return statement;
     }
-
-    Credit(amount: number): string {
-        let statement: string = "Transaction failed!";
+    Credit(amount) {
+        let statement = "Transaction failed!";
         if (amount > 0) {
             statement = "The amount you entered is wrong!";
             this.AccountBalance += amount;
@@ -37,5 +35,4 @@ class BankAccount implements IBankAccount {
         return statement;
     }
 }
-
-export default BankAccount
+exports.default = BankAccount;

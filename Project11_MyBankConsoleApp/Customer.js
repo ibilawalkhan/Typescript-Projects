@@ -1,14 +1,14 @@
-import BankAccount from "./BankAccount";
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class Customer {
-    firstName: string = "";
-    lastName: string = "";
-    gender: string = "";
-    age: number = 0;
-    mobileNumber: string = "";
-    bankAccount!: BankAccount;
-
-    customerInfo(): string {
+    constructor() {
+        this.firstName = "";
+        this.lastName = "";
+        this.gender = "";
+        this.age = 0;
+        this.mobileNumber = "";
+    }
+    customerInfo() {
         return `
             Name: ${this.firstName} ${this.lastName}
             Age: ${this.age}            
@@ -18,5 +18,4 @@ class Customer {
         `;
     }
 }
-
-export default Customer
+exports.default = Customer;
